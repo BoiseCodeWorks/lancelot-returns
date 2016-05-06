@@ -1,0 +1,19 @@
+<html ng-app="lancelot">
+<head>
+    <meta charset="UTF-8">
+    <title>Lancelot</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body ng-controller="GameController as gc">
+    
+    <div id="gameboard" class="grasslands" ng-keydown="gc.movePlayer($event)" tabindex="0" autofocus>
+        <div class="lancelot" style="top: {{gc.lancelot.position.top}}; left: {{gc.lancelot.position.left}}; background: url({{gc.lancelot.image}}); background-position: {{gc.p}}"></div>
+        <div class="powerup" ng-repeat="powerup in gc.powerUps" style="top: {{powerup.position.top}}; left: {{powerup.position.left}}; position:absolute"></div>
+        <div class="enemy" ng-repeat="enemy in gc.enemies" style="top: {{enemy.position.top}}; left: {{enemy.position.left}}; position:absolute"></div>
+        </div>
+    </div>
+    
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
